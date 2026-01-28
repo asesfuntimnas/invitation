@@ -255,6 +255,50 @@ section{
 .flip{
   transform:translateY(-8px);
 }
+
+.bg6 {
+  background: url('bg7.jpeg') center/cover no-repeat;
+  position: relative;
+  padding: 60px 20px;
+}
+.bg6 .overlay {
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+}
+.groups-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+.group-column {
+  flex: 1 1 220px;
+  min-width: 200px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 15px 20px;
+}
+.group-column h3 {
+  font-family:'Playfair Display', serif;
+  font-size:20px;
+  margin-bottom:12px;
+  text-decoration: underline;
+}
+.group-column p {
+  margin:0;
+  line-height:1.5;
+  font-family:'Poppins', sans-serif;
+  font-size:16px;
+}
+@media(max-width:768px){
+  .groups-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 @media(max-width:480px){
   .time{width:70px;height:70px}
   .time span{font-size:24px}
@@ -420,7 +464,41 @@ section{
     </div>
   </div>
 </section>
+<section class="bg6">
+  <div class="overlay"></div>
+  <div class="container fade" style="text-align:center; color:white; max-width:1200px;">
+    <h2 style="font-family:'Playfair Display', serif; font-size:32px; margin-bottom:30px;">Kelompok Peserta</h2>
+    
+    <div class="groups-columns">
+      <!-- Kelompok 1 -->
+      <div class="group-column">
+        <h3>Kelompok 1</h3>
+        <p>Regi Mulyadi<br>Martin Hotlas Silitonga<br>Kurnia Bunga Wela<br>Inayatul Wahidah<br>Ilham Saefuloh<br>Rizqa A. P.<br>Dhine Pujiastuti<br>Naila Kaeniwihanulah<br>Ade Risqi Amalia<br>Andi Andika Rizky Pratama<br>Winda Anggraeni Pratiwi<br>Yosephine</p>
+      </div>
 
+      <!-- Kelompok 2 -->
+      <div class="group-column">
+        <h3>Kelompok 2</h3>
+        <p>Meidina H W<br>Rocky Rolando Tapiheru<br>Siti Zaenab<br>Galih Eka Saputri<br>Cebiane Rizqi<br>Pratidina Kartika Putri<br>Alda<br>Teguh Widodo<br>Muamar Zulmi<br>Erina Nur Faridha<br>Irfad<br>April</p>
+      </div>
+
+      <!-- Kelompok 3 -->
+      <div class="group-column">
+        <h3>Kelompok 3</h3>
+        <p>Moh. Sofyan Oktavian Nur<br>Mia Nursuciana<br>Nuur Baiti<br>Harsa Satria Widjojo<br>Ayu Nenden Masden Badinah<br>Azzalea Cilla Fakhriya<br>Yunissa Meganingtyas<br>Briyan Angga Ardiansah<br>Gitta Aditia Bachri<br>Retno<br>M. Zulfi<br>Calli Marselina Marbun</p>
+      </div>
+
+      <!-- Kelompok 4 -->
+      <div class="group-column">
+        <h3>Kelompok 4</h3>
+        <p>Ratih Sukma Ayu<br>Oktaviani P.<br>Selvyana Mega Harjani<br>Sabrina Alvie Amelia<br>Dini Purwanti<br>Tasya Aghniya Lestari<br>Retos Gunawan<br>Ega Novia Trisnawati<br>Nur Afifah Taqiyyah<br>Nendraman<br>Zulfa<br>Tara</p>
+      </div>
+    </div>
+    <p style="margin-top:25px; font-size:14px; color:rgba(255,255,255,0.7); font-style:italic;">
+      Mohon maaf apabila terdapat kesalahan dalam penulisan nama.
+    </p>
+  </div>
+</section>
 <section class="bg1">
   <div class="overlay"></div>
   <div class="container fade">
