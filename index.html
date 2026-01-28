@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Undangan Asesfun Timnas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f4f4f4;
+}
+
+/* ===== OPENING ===== */
+#opening{
+  height:100vh;
+  background:url('bg-3.jpeg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  position:relative;
+}
+#opening::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.6);
+}
+.open-box{
+  position:relative;
+  z-index:2;
+  padding:20px;
+}
+.open-box h1{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+}
+.open-box p{margin:15px 0}
+button{
+  padding:14px 34px;
+  border:none;
+  border-radius:30px;
+  background:#2c4a7a;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* ===== CONTENT ===== */
+#content{display:none}
+
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px 20px;
+  position:relative;
+  color:white;
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.6);
+}
+.container{
+  max-width:800px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+/* BACKGROUNDS */
+.bg1{background:url('bg-main.jpeg')center/cover}
+.bg2{background:url('bg2.jpeg')center/cover}
+.bg3{background:url('bg6.jpeg')center/cover}
+.bg4{background:url('bg4.jpeg')center/cover}
+.bg5{background:url('bg5.jpeg')center/cover}
+
+/* ===== FONTS & TEXT STYLING PER BANNER ===== */
+
+/* Banner 1 - Judul utama */
+.bg1 .container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Banner 1 - Subtitle */
+.bg1 .container p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+
+/* Banner 2 - Quotes */
+.bg2 .container p {
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* Banner 3 - Undangan resmi */
+.bg3 .container p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: auto;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.4);
+}
+
+/* Banner 4 - Detail Acara */
+.bg4 .container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  margin-bottom: 20px;
+}
+.bg4 .card {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #2c4a7a;
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.bg4 .card:hover {
+  transform: translateY(-5px);
+}
+
+/* Banner 5 - Countdown */
+.bg5 .container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+.countdown-box .time span {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #2c4a7a;
+}
+.countdown-box .time small {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #2c4a7a;
+}
+
+
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+.fade.show{
+  opacity:1;
+  transform:none;
+}
+
+/* CARDS */
+.cards{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.card{
+  background:white;
+  color:#333;
+  padding:20px;
+  border-radius:14px;
+  min-width:200px;
+}
+
+/* COUNTDOWN */
+#countdown{font-size:26px;margin-top:20px}
+
+/* MUSIC BUTTON */
+#musicBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: #2c4a7a;
+  color: white;
+  font-size: 24px; /* bisa disesuaikan */
+  cursor: pointer;
+  display: none;
+
+  /* reset */
+  padding: 0;
+  line-height: 1;
+
+  /* center icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* shadow opsional */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+.countdown-box{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+.time{
+  background:#fff;
+  color:#2c4a7a;
+  width:90px;
+  height:90px;
+  border-radius:16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+.time span{
+  font-size:32px;
+  font-weight:600;
+  transition:transform .3s ease;
+}
+.time small{
+  font-size:14px;
+  margin-top:4px;
+}
+.flip{
+  transform:translateY(-8px);
+}
+@media(max-width:480px){
+  .time{width:70px;height:70px}
+  .time span{font-size:24px}
+}
+
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  h2{font-size:26px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<button id="musicBtn" style="z-index:99" onclick="toggleMusic()">🔊</button>
+
+<!-- OPENING -->
+<div id="opening">
+  <div class="open-box">
+    <h1>Asesfun Timnas</h1>
+    <p>Dear<br>Mr/Ms/Brother/Sisters<br>
+    <strong>Keluarga Besar Divisi Asesmen SDM</strong></p>
+    <button onclick="openInvitation()">Open Invitation</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div id="content">
+
+<section class="bg1">
+  <div class="overlay"></div>
+  <div class="container fade">
+    <h2>Asesfun</h2>
+    <p>Salah satu acara rutin Divisi Asesmen SDM bertema Asesmen Fun. Acara ini dibuat untuk meningkatkan Kebersamaan, Kekompakan serta kekeluargaan dalam pekerjaan. </p>
+  </div>
+</section>
+
+<section class="bg2">
+  <div class="overlay"></div>
+  <div class="container fade">
+    <p style="font-style:italic;font-size:22px">
+    <p>“Sejenak tinggalkan rapat dan deadline,<br>
+        Saatnya refreshing, hati riang dan senang.<br>
+        Asesfun menyatukan tawa dan keceriaan,<br>
+        Bersama Timnas, kebersamaan jadi kenangan.”</p>
+    </p>
+  </div>
+</section>
+
+<section class="bg3">
+  <div class="overlay"></div>
+  <div class="container fade" style="text-align:center; color:white; line-height:1.6;">
+    <p style="font-size:20px; font-style:italic;">
+      Bismillahirrahmanirrahim<br>
+      Assalamualaikum Warrahmatullahi Wabarakatuh
+    </p>
+    <p style="font-size:18px; margin:15px 0;">
+      Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i
+      untuk menghadiri acara <strong>Asesfun</strong> kami
+    </p>
+    <h2 style="font-family:'Playfair Display', serif; font-size:42px; margin:20px 0; letter-spacing:2px;">
+      TIMNAS
+    </h2>
+    <div style="text-align:center; margin-top:30px; font-family:'Poppins', sans-serif;">
+      <p style="font-size:20px; font-weight:600; color:#ffd700; letter-spacing:2px; margin:8px 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+        TI · PMA · MANAS
+      </p>
+      
+      <p style="font-size:16px; font-weight:500; color:#ffffff; margin:5px 0; letter-spacing:1px;">
+        <span style="display:inline-block; border-bottom:2px solid #ffd700; padding-bottom:2px;">Tim Super</span> : GAL · VRO · MNK · LEO
+      </p>
+    </div>
+
+
+  </div>
+</section>
+
+<section class="bg4">
+  <div class="overlay"></div>
+  <div class="container fade" style="color:white; text-align:center; max-width:400px; margin:auto;">
+    <h2 style="font-family:'Playfair Display', serif; font-size:32px; margin-bottom:15px;">Detail Kegiatan</h2>
+    
+    <p style="font-weight:500; margin-bottom:5px;">Jumat</p>
+    <p style="font-size:48px; font-weight:700; margin:0 0 5px 0; border-bottom:2px solid white; display:inline-block; padding-bottom:5px;">30</p>
+    <p style="font-weight:500; margin-top:5px; margin-bottom:15px;">Januari 2026</p>
+
+    <p style="margin: 0 0 10px 0; font-weight:500;">Pukul 15.30 s/d Selesai</p>
+    
+    <p style="font-size:14px; line-height:1.5; margin: 0 0 20px 0;">
+      Di Ruang A.200<br>
+      PPM Manajemen, Jl. Menteng Raya No.9-19, RT.1/RW.10, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340
+    </p>
+
+    <!-- Dresscode Info -->
+    <div style="
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 20px 25px;
+      margin-top: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      color: white;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      ">
+      <p style="font-weight: 700; font-size: 18px; margin-bottom: 8px;">
+        🎽 Dresscode:
+        <span style="color: #f1c40f; font-weight: 800;">Pakaian Proyek</span>
+      </p>
+      <p style="font-weight: 400; font-size: 14px; margin: 0;">
+        Mohon hindari kaos oblong dan sandal jepit demi menjaga <strong>Kesehatan dan Keselamatan Kerja</strong>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="bg5">
+  <div class="overlay"></div>
+  <div class="container fade">
+    <h2>Menuju Acara</h2>
+    <div class="countdown-box">
+      <div class="time">
+        <span id="days">00</span>
+        <small>Hari</small>
+      </div>
+      <div class="time">
+        <span id="hours">00</span>
+        <small>Jam</small>
+      </div>
+      <div class="time">
+        <span id="minutes">00</span>
+        <small>Menit</small>
+      </div>
+      <div class="time">
+        <span id="seconds">00</span>
+        <small>Detik</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg1">
+  <div class="overlay"></div>
+  <div class="container fade">
+    <p>
+      It’s our hope and pleasure<br>
+      to have you on our asesfun day<br><br>
+      <strong>Panitia Asesfun Timnas</strong>
+    </p>
+  </div>
+</section>
+
+</div>
+
+<script>
+/* OPEN INVITATION */
+function openInvitation(){
+  document.getElementById('opening').style.display='none';
+  document.getElementById('content').style.display='block';
+  // mainkan musik
+  const music = document.getElementById('music');
+  music.play().catch(e => {
+    // fallback: user harus klik tombol
+    console.log("Autoplay diblokir, klik tombol speaker");
+  });
+  document.getElementById('musicBtn').style.display='block';
+  initAnimation();
+  startCountdown();
+}
+
+/* MUSIC */
+let playing = false; // musik default OFF
+
+function toggleMusic(){
+  const music = document.getElementById('music');
+  const btn = document.getElementById('musicBtn');
+
+  if(!playing){
+    music.play().then(()=> {
+      btn.textContent = "🔊"; // ganti icon ke play
+      playing = true;
+    }).catch(()=>{
+      alert("Klik tombol musik untuk memutar musik");
+    });
+  } else {
+    music.pause();
+    btn.textContent = "🔇"; // icon mute
+    playing = false;
+  }
+}
+
+
+/* COUNTDOWN */
+let countdownInterval;
+
+function startCountdown(){
+  const target = new Date("2026-01-30T15:30:00").getTime();
+
+  const dEl = document.getElementById("days");
+  const hEl = document.getElementById("hours");
+  const mEl = document.getElementById("minutes");
+  const sEl = document.getElementById("seconds");
+
+  function update(){
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    if(diff <= 0){
+      dEl.innerText = hEl.innerText = mEl.innerText = sEl.innerText = "00";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    animate(dEl, days);
+    animate(hEl, hours);
+    animate(mEl, minutes);
+    animate(sEl, seconds);
+  }
+
+  function animate(el, val){
+    const newVal = String(val).padStart(2, "0");
+    if(el.innerText !== newVal){
+      el.classList.add("flip");
+      setTimeout(()=>el.classList.remove("flip"),300);
+      el.innerText = newVal;
+    }
+  }
+
+  update();
+  setInterval(update,1000);
+}
+
+
+/* ANIMATION */
+function initAnimation(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting)e.target.classList.add('show');
+    });
+  });
+  document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+}
+</script>
+
+</body>
+</html>
